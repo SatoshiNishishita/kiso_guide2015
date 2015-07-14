@@ -54,7 +54,7 @@ $recordSetMovie = mysql_query("SELECT * FROM movie WHERE spot_id='$id'", $db);
 			<img src="photos/images.png" class="img-responsive">
 		</div>
 		<div class="col-xs-8">
-			<h1><?php echo $movie_data['movie_title']?></h1><br />
+			<h1><?php echo $data['spot_name'];?></h1><br />
 			<h4 id="descript">
 				このウェブページを社会科見学の事前学習として利用しよう<br />
 				木曽三川公園には治水の歴史を知れるスポットがいっぱいあるよ<br />
