@@ -79,7 +79,7 @@ $recordSet = mysql_query('SELECT * FROM spot WHERE spot_boolean=1',$db);
 		//while文で$recordSetからデータベースの情報を一つずつ取り出す
 		while($data = mysql_fetch_assoc($recordSet)){
 	?>
-			<div id="left">
+			<div id="grid">
 			<div class="col-xs-6">
 			<h3><?php echo $data['spot_name'];?></h3><br /><br />
 			<div class="spot_photo"><img src="photos/spot_img<?php echo $data['spot_id']; ?>.jpg"  class="img-responsive "width="100%"></div><br />
@@ -87,20 +87,10 @@ $recordSet = mysql_query('SELECT * FROM spot WHERE spot_boolean=1',$db);
 			<a href="spot_movie.php?id=<?php echo $data['spot_id'];?>">このスポットについて調べる</a><br /><br />
 			</div>
 			</div>
-			
-			<div id="right">
-			<div class="col-xs-6">
-			<?php $data=mysql_fetch_assoc($recordSet); ?>
-			<h3><?php echo $data['spot_name'];?></h3><br /><br />
-			<div class="spot_photo"><img src="photos/spot_img<?php echo $data['spot_id']; ?>.jpg"  class="img-responsive "width="100%"></div><br />
-			<h4 class="text"><?php echo $data['spot_text'];?><br /><br /></h4>
-			<a href="spot_movie.php?id=<?php echo $data['spot_id'];?>">このスポットについて調べる</a><br /><br />
-			</div>
-			</div>
-			<hr>
-	<?php
+		<?php
 		}
 	?>
+			
 	</div>
 	
 	
