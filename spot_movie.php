@@ -24,7 +24,7 @@ $recordSet = mysql_query("SELECT * FROM spot WHERE spot_id = '$id'", $db);
 $data = mysql_fetch_assoc($recordSet);
 
 //動画
-$recordSetMovie = mysql_query("SELECT * FROM movie WHERE spot_id='$id'", $db);
+$recordSetMovie = mysql_query("SELECT * FROM movie WHERE movie_boolean = 1 AND spot_id='$id'", $db);
 
 
 
@@ -92,18 +92,7 @@ $recordSetMovie = mysql_query("SELECT * FROM movie WHERE spot_id='$id'", $db);
 					
 				</div>
 			</div>
-			
-			<div id="right">
-				<div class="col-xs-6">
-					<?php $movie_data=mysql_fetch_assoc($recordSetMovie); ?>
-					<h3><?php echo $movie_data['movie_title'];?></h3><br /><br />
-					<div id="movie"><video src="movies/<?php echo $movie_data['movie_url'];?>.mp4" poster= "photos/<?php echo $movie_data['video_img']?>.png"width="100%" controls preload="none"></div><br /><br />
-					<h4><?php echo $movie_data['movie_text'];?></h4>
-
-					
-				</div>
-			</div>
-			
+						
 		<?php
 			}
 		?>

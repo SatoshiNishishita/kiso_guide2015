@@ -20,11 +20,11 @@ $selectdb = mysql_select_db($DBNAME, $db);
 $id = $_GET['id'];
 
 //受け取ったspot_idを参照してスポットの情報を受け取る
-$recordSet = mysql_query("SELECT * FROM spot WHERE spot_id = '$id'", $db);
+$recordSet = mysql_query("SELECT * FROM spot WHERE spot_boolean = 1 AND spot_id = '$id'", $db);
 $data = mysql_fetch_assoc($recordSet);
 
 //写真
-$recordSetPhoto = mysql_query("SELECT * FROM photo WHERE spot_id='$id'", $db);
+$recordSetPhoto = mysql_query("SELECT * FROM photo WHERE photo_boolean = 1 AND spot_id='$id'", $db);
 
 
 
@@ -89,7 +89,7 @@ $recordSetPhoto = mysql_query("SELECT * FROM photo WHERE spot_id='$id'", $db);
 <div class="container">
 	
 	<ul class="nav nav-pills nav-justified">
-		<li><a href="../kiso_guide2015"><span class="glyphicon glyphicon-home"></span>ホーム</a></li>
+		<li><a href="../kiso_guide_modify2015"><span class="glyphicon glyphicon-home"></span>ホーム</a></li>
 		<li><a href="spot_movie.php?id=<?php echo $id; ?>"><span class="glyphicon glyphicon-facetime-video">動画</a></li>
 		<li class="active"><a href="spot_photo.php?id=<?php echo $id; ?>"><span class="glyphicon glyphicon-camera">写真</a></li>
 		<li><a href="javascript:location.reload(true);" data-role="button" data-icon="refresh"><span class="glyphicon glyphicon-repeat">更新</a></li>
